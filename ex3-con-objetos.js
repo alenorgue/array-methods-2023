@@ -296,21 +296,28 @@ const flightReservations = [
 ];
 
 // Usa el método forEach para iterar por cada uno de los vuelos y mostrarlos por consola
-
+flightReservations.forEach((flight) => console.log('Muestra por consola:', flight));
 // Usa el método forEach para mostrar UNICAMENTE el pasajero de cada uno de lo vuelos
-
+flightReservations.forEach((flight) => console.log('Muestra por consola:', flight.passenger));
 // USa el método find para encontrar el vuelo número 'AA456'. Luego, muestra por consola el precio total de este vuelo
-
+const flightAA456 = flightReservations.find((flight) => flight.flightNumber === 'AA456');
+console.log(flightAA456.totalPrice)
 // Usa el método find para encontrar el vuelo que ha reservado el señor bob.johnson@example.com. Muestra el objeto entero
-
+const bobFlight = flightReservations.find((flight) => flight.passenger.contactInfo.email === 'bob.johnson@example.com');
+console.log(bobFlight)
 // Usa el método some para averiguar si algún vuelo tiene como destino el aeropuerto de LPA GRAN CANARIA
-
+const flightLPA = flightReservations.some((flight) => flight.arrival.airport === 'LPA GRAN CANARIA');
+console.log(flightLPA)
 // Usa el método every para comprobar si todos los vuelos están confirmados (isConfirmed)
-
+const allFlightsConfirmed = flightReservations.every((flight) => flight.isConfirmed)
+console.log(allFlightsConfirmed)
 // Usa el método filter para obtener todos los vuelos que tienen la puerta de embarque 'D5'
-
+const flightsWithGateD5 = flightReservations.filter((flight) => flight.gate === "D5");
+console.log(flightsWithGateD5);
 // Usa el método filter para obtener todos los vuelos que incluyen menús con comida Vegan. BONUS: Muestra por consola el nombre de la aerolínea
-
+const flightsWithVeganMeals = flightReservations.filter((flight) => flight.specialMeals.includes("Vegan"));
+console.log(flightsWithVeganMeals);
+console.log("BONUS:", flightsWithVeganMeals[0].airline);
 // Usa el método map para convertir cada objeto en un string con el formato 'numero de vuelo'-'compañía area'´Ejemplo : "AA456-American Airlines"
 
 // DIFICIL. USA el método reduce para sumar el conjunto total de puntos obtenidos de loyalyProgram de todos los tickets
