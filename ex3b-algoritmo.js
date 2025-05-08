@@ -10,6 +10,7 @@
 
 function countWins(winnerList, country) {
     // your awesome code here
+    return winnerList.filter(winner => winner.country === country).length;
 }
 
 const winnerList1 = [

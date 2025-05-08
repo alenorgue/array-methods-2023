@@ -319,5 +319,8 @@ const flightsWithVeganMeals = flightReservations.filter((flight) => flight.speci
 console.log(flightsWithVeganMeals);
 console.log("BONUS:", flightsWithVeganMeals[0].airline);
 // Usa el método map para convertir cada objeto en un string con el formato 'numero de vuelo'-'compañía area'´Ejemplo : "AA456-American Airlines"
-
+const flightNumbersAndAirlines = flightReservations.map((flight) => `${flight.flightNumber}-${flight.airline}`);
+console.log(flightNumbersAndAirlines);
 // DIFICIL. USA el método reduce para sumar el conjunto total de puntos obtenidos de loyalyProgram de todos los tickets
+const totalLoyaltyPoints = flightReservations.reduce((total, flight) => total + flight.loyaltyProgram.points, 0);
+console.log("Total de puntos de programas de fidelidad:", totalLoyaltyPoints);
